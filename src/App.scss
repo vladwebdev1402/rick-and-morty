@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto-Medium.ttf");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto-Bold.ttf");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Karla";
+    src: url("assets/fonts/Karla-Bold.ttf");
+    font-style: normal;
+    font-weight: 700;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto";
+}
+
+:root {
+    --inactive: rgba(0, 0, 0, 0.5);
+    --pharagraph: #212121;
+    --black: #000000;
+    --black-high: rgba(0, 0, 0, 0.87); 
+    --black-medium: rgba(0, 0, 0, 0.6);
+    --black-basic: #081F32;
+    --gray: #6E798C;
+    --gray-basic: #8E8E93;
+}
