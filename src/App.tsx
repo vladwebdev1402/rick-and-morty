@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.scss";
-import image from "@/assets/images/ava.png";
+import Header from "./modules/header/Header";
 function App() {
   return (
     <div className="App">
-      <img src={image} alt="" />
+      <Header />
     </div>
   );
 }
