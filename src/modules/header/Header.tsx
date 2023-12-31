@@ -6,18 +6,18 @@ const Header = () => {
   return (
     <header className={st.header}>
       <nav className={`container ${st.header__container}`}>
-        <a href={"#"}>
+        <Link to={"#"}>
           <img src={logo} alt="" />
-        </a>
+        </Link>
         <ul className={st.header__links}>
           <li className={st.header__linkitem}>
-            <a href={"#"}>Characters</a>
+            <Link to={"#"}>Characters</Link>
           </li>
           <li className={st.header__linkitem}>
-            <a href={"#"}>Locations</a>
+            <Link to={"#"}>Locations</Link>
           </li>
           <li className={st.header__linkitem}>
-            <a href={"#"}>Episodes</a>
+            <Link to={"#"}>Episodes</Link>
           </li>
         </ul>
       </nav>
