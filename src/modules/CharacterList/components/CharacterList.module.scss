@@ -1,24 +1,33 @@
-.list {
+.cahracters {
+    margin-top: 60px;
+}
+.cahracters__body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px 20px;
-    margin-top: 60px;
 }
 
+.cahracters__footer {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+}
+
+
 @media screen and (max-width: 992px) {
-    .list {
+    .cahracters__body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media screen and (max-width: 768px) {
-    .list {
+    .cahracters__body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 576px) {
-    .list {
+    .cahracters__body {
         grid-template-columns: repeat(1, 1fr);
     }
 }
