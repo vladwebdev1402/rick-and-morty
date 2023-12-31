@@ -1,0 +1,49 @@
+.burger {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    width: 24px;
+    height: 24px;
+}
+
+%line {
+    width: 18px;
+    height: 2px;
+    background-color: #DADADA;
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    transition: .3s;
+}
+
+.line1 {
+    @extend %line;
+    transform-origin: left;
+}
+
+.line2 {
+    @extend %line;
+    top: 11px;
+}
+
+.line3 {
+    @extend %line;
+    top: 16px;
+    transform-origin: left;
+}
+
+.burger__active {
+    .line1  {
+        top: 5px;
+        transform: rotate(45deg);
+        background-color: rgba(0, 0, 0, 0.54);
+    }
+    .line2 {
+        transform: scale(0);
+    }
+    .line3 {
+        transform: rotate(-45deg);
+        background-color: rgba(0, 0, 0, 0.54);
+        top: 18px;
+    }
+}
