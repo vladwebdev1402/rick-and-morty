@@ -44,6 +44,20 @@ const CharacterList: FC<Props> = ({ filters, setFilters }) => {
         >
           LOAD MORE
         </Button>
+        {filters.page > 1 && (
+          <Button
+            sx={{
+              padding: "10px 32px",
+            }}
+            variant="text"
+            onClick={() => {
+              window.scrollTo({ top: 100 });
+              setFilters({ ...filters, page: filters.page - 1 });
+            }}
+          >
+            BACK PAGE
+          </Button>
+        )}
       </div>
     </div>
   );
