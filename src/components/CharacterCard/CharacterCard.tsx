@@ -8,6 +8,8 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate } from "react-router-dom";
+import { paths } from "@/routePaths/paths";
 interface Props {
   character: ICharacter;
 }
@@ -15,10 +17,14 @@ interface Props {
 const CharacterCard: FC<Props> = ({ character }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card sx={{ height: "100%" }}>
         <CardActionArea
+          onClick={() => {
+            navigate(paths.characterDetailNavigate(character.id));
+          }}
           sx={{
             height: "100%",
           }}

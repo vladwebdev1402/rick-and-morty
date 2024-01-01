@@ -1,19 +1,18 @@
 import React, { FC, useEffect } from "react";
 import st from "./CharacterList.module.scss";
-import { CharacterData } from "../data";
 import { CharacterCard } from "@/components/CharacterCard";
 import { Button } from "@mui/material";
-import { Grid } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { fetchCharacters } from "../store/ActionCreator";
 import { ICharacterFilters } from "@/types/ICharacterFilters";
 
 interface Props {
   filters: ICharacterFilters;
-  setFilters: (value: ICharacterFilters) => void;
+  nextPage: () => void;
+  prevPage: () => void;
 }
 
-const CharacterList: FC<Props> = ({ filters, setFilters }) => {
+const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
   const dispatch = useAppDispatch();
   const { characters, error, isLoading } = useAppSelector(
     (state) => state.CharacterListReducer
@@ -39,7 +38,7 @@ const CharacterList: FC<Props> = ({ filters, setFilters }) => {
           variant="outlined"
           onClick={() => {
             window.scrollTo({ top: 100 });
-            setFilters({ ...filters, page: filters.page + 1 });
+            nextPage();
           }}
         >
           LOAD MORE
@@ -52,7 +51,7 @@ const CharacterList: FC<Props> = ({ filters, setFilters }) => {
             variant="text"
             onClick={() => {
               window.scrollTo({ top: 100 });
-              setFilters({ ...filters, page: filters.page - 1 });
+              prevPage();
             }}
           >
             BACK PAGE

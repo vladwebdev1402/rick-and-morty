@@ -10,36 +10,23 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import DropDown from "./DropDown";
 import ShowAll from "./ShowAll";
-import { ICharacterFilters } from "@/types/ICharacterFilters";
-interface Props {
-  filters: ICharacterFilters;
-  setFilters: (value: ICharacterFilters) => void;
-}
-const CharacterFilters: FC<Props> = ({ filters, setFilters }) => {
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { CharacterFiltersSlice } from "../store/reducer";
+
+const CharacterFilters = () => {
   const theme = useTheme();
   const [showAll, setShowAll] = useState(false);
   const down_sm = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const setSpecies = (species: string) =>
-    setFilters({
-      ...filters,
-      species: species,
-      page: 1,
-    });
+  const filters = useAppSelector(
+    (state) => state.CharacterFiltersReducer.filters
+  );
+  const actions = CharacterFiltersSlice.actions;
+  const dispatch = useAppDispatch();
 
-  const setGender = (gender: string) =>
-    setFilters({
-      ...filters,
-      gender: gender,
-      page: 1,
-    });
-
-  const setStatus = (status: string) =>
-    setFilters({
-      ...filters,
-      status: status,
-      page: 1,
-    });
+  const setSpecies = (payload: string) => dispatch(actions.setSpecies(payload));
+  const setGender = (payload: string) => dispatch(actions.setGender(payload));
+  const setStatus = (payload: string) => dispatch(actions.setStatus(payload));
 
   return (
     <div className={`container ${st.filters}`}>
@@ -51,7 +38,7 @@ const CharacterFilters: FC<Props> = ({ filters, setFilters }) => {
             placeholder="Filter by name..."
             value={filters.name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setFilters({ ...filters, name: e.target.value })
+              dispatch(actions.setName(e.target.value))
             }
             InputProps={{
               startAdornment: (

@@ -8,11 +8,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { paths } from "../../routePaths/paths";
+import CharacterDetailPage from "@/pages/CharacterDetailPage/CharacterDetailPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={paths.main} element={<Root />}>
       <Route index element={<Characters />} />
+      <Route path={paths.characterDetail} element={<CharacterDetailPage />} />
     </Route>
   )
 );
