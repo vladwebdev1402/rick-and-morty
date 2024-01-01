@@ -2,7 +2,7 @@ import React from "react";
 import st from "./Characters.module.scss";
 import text from "@/assets/images/rick-and-morty-txt.svg";
 import { CharacterList } from "@/modules/CharacterList";
-import CharacterFilters from "@/modules/CharacterFilters/components/CharacterFilters";
+import { CharacterFilters } from "@/modules/CharacterFilters";
 const Characters = () => {
   return (
     <>
