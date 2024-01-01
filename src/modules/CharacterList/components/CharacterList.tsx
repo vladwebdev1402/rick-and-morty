@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { fetchCharacters } from "../store/ActionCreator";
 import { ICharacterFilters } from "@/types/ICharacterFilters";
+import Skeletons from "./Skeletons";
 
 interface Props {
   filters: ICharacterFilters;
@@ -25,9 +26,13 @@ const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
   return (
     <div className={`container ${st.cahracters}`}>
       <div className={st.cahracters__body}>
-        {characters.map((character) => (
-          <CharacterCard character={character} key={character.id} />
-        ))}
+        {isLoading ? (
+          <Skeletons />
+        ) : (
+          characters.map((character) => (
+            <CharacterCard character={character} key={character.id} />
+          ))
+        )}
       </div>
 
       <div className={st.cahracters__footer}>
