@@ -10,6 +10,7 @@ const Characters = () => {
     species: "",
     gender: "",
     status: "",
+    page: 1,
   });
 
   return (
@@ -18,7 +19,7 @@ const Characters = () => {
         <img src={text} alt="" />
       </div>
       <CharacterFilters filters={filters} setFilters={setFilters} />
-      <CharacterList filters={filters} />
+      <CharacterList filters={filters} setFilters={setFilters} />
     </>
   );
 };

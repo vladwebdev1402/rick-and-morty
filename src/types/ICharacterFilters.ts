@@ -3,4 +3,5 @@ export interface ICharacterFilters {
     species: string;
     gender: string;
     status: string;
+    page: number
 }

@@ -24,18 +24,21 @@ const CharacterFilters: FC<Props> = ({ filters, setFilters }) => {
     setFilters({
       ...filters,
       species: species,
+      page: 1,
     });
 
   const setGender = (gender: string) =>
     setFilters({
       ...filters,
       gender: gender,
+      page: 1,
     });
 
   const setStatus = (status: string) =>
     setFilters({
       ...filters,
       status: status,
+      page: 1,
     });
 
   return (

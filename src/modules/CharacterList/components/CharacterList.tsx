@@ -10,9 +10,10 @@ import { ICharacterFilters } from "@/types/ICharacterFilters";
 
 interface Props {
   filters: ICharacterFilters;
+  setFilters: (value: ICharacterFilters) => void;
 }
 
-const CharacterList: FC<Props> = ({ filters }) => {
+const CharacterList: FC<Props> = ({ filters, setFilters }) => {
   const dispatch = useAppDispatch();
   const { characters, error, isLoading } = useAppSelector(
     (state) => state.CharacterListReducer
@@ -36,6 +37,10 @@ const CharacterList: FC<Props> = ({ filters }) => {
             padding: "10px 32px",
           }}
           variant="outlined"
+          onClick={() => {
+            window.scrollTo({ top: 100 });
+            setFilters({ ...filters, page: filters.page + 1 });
+          }}
         >
           LOAD MORE
         </Button>
