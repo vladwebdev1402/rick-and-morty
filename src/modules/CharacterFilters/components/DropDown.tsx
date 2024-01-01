@@ -5,16 +5,21 @@ import {
   MenuItem,
   Select,
   Grid,
-  useMediaQuery,
-  useTheme,
+  SelectChangeEvent,
 } from "@mui/material";
 
 interface Props {
   label: string;
   items: string[];
   visible: boolean;
+  setFilter: (value: string) => void;
+  current: string;
 }
-const DropDown: FC<Props> = ({ label, items, visible }) => {
+const DropDown: FC<Props> = ({ label, items, visible, current, setFilter }) => {
+  const handleChange = (event: SelectChangeEvent) => {
+    setFilter(event.target.value as string);
+  };
+
   return (
     <Grid
       item
@@ -28,7 +33,7 @@ const DropDown: FC<Props> = ({ label, items, visible }) => {
     >
       <FormControl fullWidth>
         <InputLabel>{label}</InputLabel>
-        <Select label={label}>
+        <Select label={label} value={current} onChange={handleChange}>
           {items.map((item, idx) => (
             <MenuItem key={idx} value={item}>
               {item}
