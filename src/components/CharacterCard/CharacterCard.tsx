@@ -17,16 +17,19 @@ const CharacterCard: FC<Props> = ({ character }) => {
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
-        <CardActionArea>
+      <Card sx={{ height: "100%" }}>
+        <CardActionArea
+          sx={{
+            height: "100%",
+          }}
+        >
           <CardMedia
             sx={{ height: matches ? 288 : 168 }}
             image={character.image}
           />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+          <CardContent sx={{ height: "100%" }}>
+            <Typography gutterBottom variant="h6" component="div" sx={{}}>
               {character.name}
-              {matches}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {character.species}

@@ -2,8 +2,12 @@ import React from "react";
 import "./App.scss";
 import Router from "./modules/router/Router";
 import { ThemeProvider } from "@mui/material";
-
 import { createTheme } from "@mui/material";
+import { Provider } from "react-redux";
+import { setupStore } from "./store";
+
+const store = setupStore();
+
 function App() {
   const theme = createTheme({
     breakpoints: {
@@ -19,9 +23,11 @@ function App() {
 
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
-        <Router />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Router />
+        </ThemeProvider>
+      </Provider>
     </div>
   );
 }

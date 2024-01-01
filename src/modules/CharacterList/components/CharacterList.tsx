@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import st from "./CharacterList.module.scss";
 import { CharacterData } from "../data";
 import { CharacterCard } from "@/components/CharacterCard";
 import { Button } from "@mui/material";
 import { Grid } from "@mui/material";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { fetchCharacters } from "../store/ActionCreator";
 const CharacterList = () => {
+  const dispatch = useAppDispatch();
+  const { characters, error, isLoading } = useAppSelector(
+    (state) => state.CharacterListReducer
+  );
+
+  useEffect(() => {
+    dispatch(fetchCharacters());
+  }, []);
+
   return (
     <div className={`container ${st.cahracters}`}>
-      <Grid container spacing={2}>
-        {CharacterData.map((character, idx) => (
-          <CharacterCard character={character} key={idx} />
+      <div className={st.cahracters__body}>
+        {characters.map((character) => (
+          <CharacterCard character={character} key={character.id} />
         ))}
-      </Grid>
+      </div>
 
       <div className={st.cahracters__footer}>
         <Button

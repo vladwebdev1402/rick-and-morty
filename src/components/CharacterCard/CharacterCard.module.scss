@@ -1,0 +1,37 @@
+.card {
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.card__image {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    height: 168px;
+    overflow: hidden;
+    img {
+        object-fit: cover;
+        width: 100%;
+        object-position: center;
+    }
+}
+.card__body {
+    padding: 12px 16px;
+    height: 100%;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+}
+.card__name {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    color: var(--black-height);
+    flex-grow: 1;
+}
+.card__species {
+    color: var(--black-medium);
+    font-size: 14px;
+    margin-top: 1px;
+}

@@ -68,14 +68,14 @@ const CharacterFilters: FC<Props> = ({ filters, setFilters }) => {
         />
         <DropDown
           label="Gender"
-          items={["None", "Male", "Female"]}
+          items={["None", "Male", "Female", "Genderless"]}
           visible={!down_sm || showAll}
           current={filters.gender}
           setFilter={setGender}
         />
         <DropDown
           label="Status"
-          items={["None", "Alive", "Dead"]}
+          items={["None", "Alive", "Dead", "Unknown"]}
           visible={!down_sm || showAll}
           current={filters.status}
           setFilter={setStatus}
