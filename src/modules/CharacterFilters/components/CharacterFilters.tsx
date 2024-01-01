@@ -46,9 +46,9 @@ const CharacterFilters: FC<Props> = ({ filters, setFilters }) => {
             fullWidth
             variant="outlined"
             placeholder="Filter by name..."
-            value={filters.search}
+            value={filters.name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setFilters({ ...filters, search: e.target.value })
+              setFilters({ ...filters, name: e.target.value })
             }
             InputProps={{
               startAdornment: (
@@ -61,21 +61,29 @@ const CharacterFilters: FC<Props> = ({ filters, setFilters }) => {
         </Grid>
         <DropDown
           label="Species"
-          items={["None", "Human", "Alien"]}
+          items={[
+            "Clear",
+            "Human",
+            "Humanoid",
+            "Cronenberg",
+            "Alien",
+            "Robot",
+            "Mythological Creature",
+          ]}
           visible={!down_sm || showAll}
           current={filters.species}
           setFilter={setSpecies}
         />
         <DropDown
           label="Gender"
-          items={["None", "Male", "Female", "Genderless"]}
+          items={["Clear", "Male", "Female", "Genderless"]}
           visible={!down_sm || showAll}
           current={filters.gender}
           setFilter={setGender}
         />
         <DropDown
           label="Status"
-          items={["None", "Alive", "Dead", "Unknown"]}
+          items={["Clear", "Alive", "Dead", "unknown"]}
           visible={!down_sm || showAll}
           current={filters.status}
           setFilter={setStatus}

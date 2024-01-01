@@ -8,7 +8,8 @@ const customAxios = axios.create(
 )
 
 export default class BaseApi {
-    static get = async <T>(url:string, query?: any) => {
-      return  await customAxios.get<T>(url, query)
+    static get = async <T>(url:string, params?: any) => {
+    const response = await customAxios.get<T>(url, {params})
+    return response;
     }
 }

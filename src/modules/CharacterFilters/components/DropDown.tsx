@@ -17,7 +17,11 @@ interface Props {
 }
 const DropDown: FC<Props> = ({ label, items, visible, current, setFilter }) => {
   const handleChange = (event: SelectChangeEvent) => {
-    setFilter(event.target.value as string);
+    setFilter(
+      (event.target.value as string) === "Clear"
+        ? ""
+        : (event.target.value as string)
+    );
   };
 
   return (

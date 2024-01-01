@@ -1,5 +1,5 @@
 export interface ICharacterFilters {
-    search: string;
+    name: string;
     species: string;
     gender: string;
     status: string;

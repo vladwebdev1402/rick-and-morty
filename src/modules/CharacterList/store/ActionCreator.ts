@@ -1,15 +1,15 @@
 import BaseApi from "@/api/api";
-import { ICharacter } from "@/components/CharacterCard";
 import { AppDispatch } from "@/store";
 import { CharacterListSlice } from "./reducer";
 import { IResponse } from "./type";
+import { ICharacterFilters } from "@/types/ICharacterFilters";
 
 
-export const fetchCharacters = () => async (dispatch: AppDispatch) => {
+export const fetchCharacters = (query?: ICharacterFilters) => async (dispatch: AppDispatch) => {
     try {
 
         dispatch(CharacterListSlice.actions.characterFetching())
-        const response = await BaseApi.get<IResponse>("/character")
+        const response = await BaseApi.get<IResponse>("/character", query)
         dispatch(CharacterListSlice.actions.characterFetchingSuccess(response.data.results))
     }
     catch (e) {

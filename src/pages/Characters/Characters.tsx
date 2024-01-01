@@ -6,7 +6,7 @@ import { CharacterFilters } from "@/modules/CharacterFilters";
 import { ICharacterFilters } from "@/types/ICharacterFilters";
 const Characters = () => {
   const [filters, setFilters] = useState<ICharacterFilters>({
-    search: "",
+    name: "",
     species: "",
     gender: "",
     status: "",
@@ -18,7 +18,7 @@ const Characters = () => {
         <img src={text} alt="" />
       </div>
       <CharacterFilters filters={filters} setFilters={setFilters} />
-      <CharacterList />
+      <CharacterList filters={filters} />
     </>
   );
 };
