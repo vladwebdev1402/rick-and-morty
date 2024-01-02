@@ -1,12 +1,13 @@
 import React, { FC } from "react";
-import { Box, Typography, ListItem } from "@mui/material";
+import { Box, Typography, ListItem, Skeleton } from "@mui/material";
 
 interface Props {
   title: string;
   children: React.ReactNode;
+  isLoading?: boolean;
 }
 
-const ListItemInfo: FC<Props> = ({ title, children }) => {
+const ListItemInfo: FC<Props> = ({ title, children, isLoading = false }) => {
   return (
     <ListItem divider>
       <Box>
@@ -18,14 +19,18 @@ const ListItemInfo: FC<Props> = ({ title, children }) => {
         >
           {title}
         </Typography>
-        <Typography
-          variant="body1"
-          component="div"
-          color="GrayText"
-          gutterBottom
-        >
-          {children}
-        </Typography>
+        {!isLoading ? (
+          <Typography
+            variant="body1"
+            component="div"
+            color="GrayText"
+            gutterBottom
+          >
+            {children}
+          </Typography>
+        ) : (
+          <Skeleton height={25} width={200}></Skeleton>
+        )}
       </Box>
     </ListItem>
   );

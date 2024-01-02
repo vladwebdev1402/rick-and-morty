@@ -4,15 +4,22 @@ import {
   Typography,
   ListItem,
   ListItemButton as ListItemBtn,
+  Skeleton,
 } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 interface Props {
   title: string;
   children: React.ReactNode;
   date?: string;
+  isLoading?: boolean;
 }
 
-const ListItemButton: FC<Props> = ({ title, date = "", children }) => {
+const ListItemButton: FC<Props> = ({
+  title,
+  date = "",
+  children,
+  isLoading = false,
+}) => {
   return (
     <ListItem
       disablePadding
@@ -31,23 +38,29 @@ const ListItemButton: FC<Props> = ({ title, date = "", children }) => {
           >
             {title}
           </Typography>
-          <Typography
-            variant="body1"
-            component="div"
-            color="GrayText"
-            gutterBottom={!date}
-          >
-            {children}
-          </Typography>
-          {date && (
-            <Typography
-              variant="overline"
-              component="div"
-              color="GrayText"
-              gutterBottom
-            >
-              {date}
-            </Typography>
+          {!isLoading ? (
+            <>
+              <Typography
+                variant="body1"
+                component="div"
+                color="GrayText"
+                gutterBottom={!date}
+              >
+                {children}
+              </Typography>
+              {date && (
+                <Typography
+                  variant="overline"
+                  component="div"
+                  color="GrayText"
+                  gutterBottom
+                >
+                  {date}
+                </Typography>
+              )}
+            </>
+          ) : (
+            <Skeleton height={25} width={200}></Skeleton>
           )}
         </Box>
       </ListItemBtn>

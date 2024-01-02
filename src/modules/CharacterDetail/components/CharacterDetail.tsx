@@ -43,7 +43,10 @@ const CharacterDetail = () => {
           <Typography variant="h6" color="GrayText" component="div">
             Informations
           </Typography>
-          <CharacterInformationDeatil />
+          <CharacterInformationDeatil
+            isLoading={isLoading}
+            character={character}
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" color="GrayText" component="div">

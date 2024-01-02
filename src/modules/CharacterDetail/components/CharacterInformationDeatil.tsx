@@ -1,10 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 import { List } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { ListItemInfo } from "@/components/ListItemInfo";
 import { ListItemButton } from "@/components/ListItemButton";
-const CharacterInformationDeatil = () => {
+import { ICharacter } from "@/components/CharacterCard";
+interface Props {
+  isLoading: boolean;
+  character: ICharacter;
+}
+const CharacterInformationDeatil: FC<Props> = ({ isLoading, character }) => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -14,13 +19,23 @@ const CharacterInformationDeatil = () => {
         marginTop: matchesMD ? "16px" : "36px",
       }}
     >
-      <ListItemInfo title={"Gender"}>Male</ListItemInfo>
-      <ListItemInfo title={"Status"}>Alive</ListItemInfo>
-      <ListItemInfo title={"Specie"}>Human</ListItemInfo>
-      <ListItemInfo title={"Origin"}>Earth (C-137)</ListItemInfo>
-      <ListItemInfo title={"Type"}>Unknown</ListItemInfo>
+      <ListItemInfo title={"Gender"} isLoading={isLoading}>
+        {character.gender}
+      </ListItemInfo>
+      <ListItemInfo title={"Status"} isLoading={isLoading}>
+        {character.status}
+      </ListItemInfo>
+      <ListItemInfo title={"Species"} isLoading={isLoading}>
+        {character.species}
+      </ListItemInfo>
+      <ListItemInfo title={"Origin"} isLoading={isLoading}>
+        {character.origin.name}
+      </ListItemInfo>
+      <ListItemInfo title={"Type"} isLoading={isLoading}>
+        {character.type ? character.type : "unknown"}
+      </ListItemInfo>
       <ListItemButton title={"Location"}>
-        Earth (Replacement Dimension)
+        {character.location.name}
       </ListItemButton>
     </List>
   );
