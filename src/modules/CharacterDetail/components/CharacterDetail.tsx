@@ -16,8 +16,9 @@ const CharacterDetail = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    window.scrollTo({ top: 0 });
     dispatch(fetchCharacterDetail(Number(params.id)));
-  }, []);
+  }, [params.id]);
 
   return (
     <>
@@ -25,7 +26,11 @@ const CharacterDetail = () => {
         <Button variant="text" color="inherit" startIcon={<ArrowBackIcon />}>
           go back
         </Button>
-        <CharacterAvatarDetail />
+        <CharacterAvatarDetail
+          name={character.name}
+          image={character.image}
+          isLoading={isLoading}
+        />
       </Box>
       <Grid
         container

@@ -3,13 +3,32 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchCharacterDetail } from "./ActionCreator";
 
 interface ICharacterDetail {
-    character: ICharacter | null;
+    character: ICharacter;
     isLoading: boolean;
     error: string;
 }
 
 const initialState: ICharacterDetail = {
-    character: null,
+    character: {
+        "id": 1,
+        "name": "",
+        "status": "",
+        "species": "",
+        "type": "",
+        "gender": "",
+        "origin": {
+          "name": "",
+          "url": ""
+        },
+        "location": {
+          "name": "",
+          "url": ""
+        },
+        "image": "",
+        "episode": [],
+        "url": "",
+        "created": ""
+    },
     isLoading: false,
     error: ""
 }
