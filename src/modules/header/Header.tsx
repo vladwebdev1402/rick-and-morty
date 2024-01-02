@@ -19,7 +19,7 @@ const Header = () => {
             <Link to={paths.main}>Characters</Link>
           </li>
           <li className={st.header__linkitem}>
-            <Link to={"#"}>Locations</Link>
+            <Link to={paths.locations}>Locations</Link>
           </li>
           <li className={st.header__linkitem}>
             <Link to={"#"}>Episodes</Link>
@@ -32,7 +32,12 @@ const Header = () => {
         />
       </nav>
 
-      <BurgerBody active={burger} />
+      <BurgerBody
+        active={burger}
+        close={() => {
+          setBurger(false);
+        }}
+      />
     </header>
   );
 };

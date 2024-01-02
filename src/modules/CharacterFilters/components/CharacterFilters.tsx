@@ -1,17 +1,11 @@
 import React, { FC, useState } from "react";
 import st from "./CharacterFilters.module.scss";
-import {
-  IconButton,
-  TextField,
-  Grid,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { Grid, useMediaQuery, useTheme } from "@mui/material";
 import DropDown from "./DropDown";
-import ShowAll from "./ShowAll";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { CharacterFiltersSlice } from "../store/reducer";
+import SearchField from "@/components/UI/SearchField";
+import ShowAllFilters from "@/components/UI/ShowAll";
 
 const CharacterFilters = () => {
   const theme = useTheme();
@@ -32,21 +26,13 @@ const CharacterFilters = () => {
     <div className={`container ${st.filters}`}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4} lg={3}>
-          <TextField
+          <SearchField
             fullWidth
-            variant="outlined"
             placeholder="Filter by name..."
             value={filters.name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               dispatch(actions.setName(e.target.value))
             }
-            InputProps={{
-              startAdornment: (
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              ),
-            }}
           />
         </Grid>
         <DropDown
@@ -79,7 +65,11 @@ const CharacterFilters = () => {
           setFilter={setStatus}
         />
       </Grid>
-      <ShowAll setShowAll={setShowAll} showAll={showAll} visible={down_sm} />
+      <ShowAllFilters
+        setShowAll={setShowAll}
+        showAll={showAll}
+        visible={down_sm}
+      />
     </div>
   );
 };

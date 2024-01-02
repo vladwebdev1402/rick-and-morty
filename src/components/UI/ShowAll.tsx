@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Button } from "@mui/material";
+import { Button, SxProps } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import FilterListOffIcon from "@mui/icons-material/FilterListOff";
 
@@ -7,8 +7,9 @@ interface Props {
   setShowAll: (value: boolean) => void;
   showAll: boolean;
   visible: boolean;
+  sx?: SxProps;
 }
-const ShowAll: FC<Props> = ({ setShowAll, showAll, visible }) => {
+const ShowAllFilters: FC<Props> = ({ setShowAll, showAll, visible, sx }) => {
   const clickShow = () => {
     setShowAll(!showAll);
   };
@@ -28,6 +29,7 @@ const ShowAll: FC<Props> = ({ setShowAll, showAll, visible }) => {
         "&:hover": {
           backgroundColor: "#C5DEF0",
         },
+        ...sx,
       }}
       onClick={clickShow}
     >
@@ -36,4 +38,4 @@ const ShowAll: FC<Props> = ({ setShowAll, showAll, visible }) => {
   );
 };
 
-export default ShowAll;
+export default ShowAllFilters;
