@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/tattoo-react/static/css/main.0feb15e0.css",
+    "main.js": "/tattoo-react/static/js/main.1e06adfd.js",
+    "static/media/logo.svg": "/tattoo-react/static/media/logo.d10a8f93d9feefb6ad53f32bf94678ab.svg",
+    "static/media/rick-and-morty-txt.svg": "/tattoo-react/static/media/rick-and-morty-txt.cc4a7d1826c4c03d11cfbf42cc844bae.svg",
+    "static/media/Roboto-Medium.ttf": "/tattoo-react/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
+    "static/media/Roboto-Regular.ttf": "/tattoo-react/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Bold.ttf": "/tattoo-react/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
+    "static/media/Karla-Bold.ttf": "/tattoo-react/static/media/Karla-Bold.23ca816af95c228bcb4e.ttf",
+    "index.html": "/tattoo-react/index.html",
+    "main.0feb15e0.css.map": "/tattoo-react/static/css/main.0feb15e0.css.map",
+    "main.1e06adfd.js.map": "/tattoo-react/static/js/main.1e06adfd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0feb15e0.css",
+    "static/js/main.1e06adfd.js"
+  ]
+}
