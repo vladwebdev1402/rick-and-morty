@@ -1,0 +1,54 @@
+import { Box, Button, Typography, Grid } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import React, { useEffect } from "react";
+import CharacterAvatarDetail from "./CharacterAvatarDetail";
+import CharacterInformationDeatil from "./CharacterInformationDeatil";
+import CharacterEpisodeDetail from "./CharacterEpisodeDetail";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { useParams } from "react-router-dom";
+import { fetchCharacterDetail } from "../store/ActionCreator";
+
+const CharacterDetail = () => {
+  const params = useParams<{ id: string }>();
+  const { character, error, isLoading } = useAppSelector(
+    (state) => state.CharacterDetailReducer
+  );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCharacterDetail(Number(params.id)));
+  }, []);
+
+  return (
+    <>
+      <Box>
+        <Button variant="text" color="inherit" startIcon={<ArrowBackIcon />}>
+          go back
+        </Button>
+        <CharacterAvatarDetail />
+      </Box>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          marginTop: `32px`,
+        }}
+      >
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" color="GrayText" component="div">
+            Informations
+          </Typography>
+          <CharacterInformationDeatil />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" color="GrayText" component="div">
+            Episodes
+          </Typography>
+          <CharacterEpisodeDetail />
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+
+export default CharacterDetail;

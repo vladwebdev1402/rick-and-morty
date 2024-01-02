@@ -1,10 +1,12 @@
 import { CharacterListReducer } from "@/modules/CharacterList"
 import { CharacterFiltersReducer } from "@/modules/CharacterFilters"
+import { CharacterDetailReducer } from "@/modules/CharacterDetail"
 import {combineReducers, configureStore} from "@reduxjs/toolkit"
 
 const rootReducer = combineReducers({
     CharacterListReducer,
-    CharacterFiltersReducer
+    CharacterFiltersReducer,
+    CharacterDetailReducer
 })
 
 export const setupStore = () => {

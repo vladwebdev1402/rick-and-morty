@@ -1,4 +1,4 @@
-const root = "/"
+const root = "/rick-and-morty/"
 
 export const paths = {
     main: root,
