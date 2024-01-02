@@ -5,11 +5,12 @@ import CharacterAvatarDetail from "./CharacterAvatarDetail";
 import CharacterInformationDeatil from "./CharacterInformationDeatil";
 import CharacterEpisodeDetail from "./CharacterEpisodeDetail";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchCharacterDetail } from "../store/ActionCreator";
 
 const CharacterDetail = () => {
   const params = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const { character, error, isLoading } = useAppSelector(
     (state) => state.CharacterDetailReducer
   );
@@ -23,7 +24,12 @@ const CharacterDetail = () => {
   return (
     <>
       <Box>
-        <Button variant="text" color="inherit" startIcon={<ArrowBackIcon />}>
+        <Button
+          variant="text"
+          color="inherit"
+          startIcon={<ArrowBackIcon />}
+          onClick={() => navigate(-1)}
+        >
           go back
         </Button>
         <CharacterAvatarDetail

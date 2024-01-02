@@ -11,6 +11,14 @@ const Skeletons = () => {
       <Skeleton animation="wave" variant="rectangular" height={"200px"} />
       <Skeleton animation="wave" variant="rectangular" height={"200px"} />
       <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
+      <Skeleton animation="wave" variant="rectangular" height={"200px"} />
     </>
   );
 };
