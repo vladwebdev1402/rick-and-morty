@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import { List } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { ListItemInfo } from "@/components/ListItemInfo";
-import { ListItemButton } from "@/components/ListItemButton";
 import { ICharacter } from "@/components/CharacterCard";
+import ListItemButton from "./ListItemButton/ListItemButton";
+import ListItemInfo from "./ListItemInfo/ListItemInfo";
 interface Props {
   isLoading: boolean;
   character: ICharacter;

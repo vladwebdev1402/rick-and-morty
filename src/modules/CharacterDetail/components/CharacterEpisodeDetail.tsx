@@ -1,9 +1,13 @@
-import React from "react";
-import { List } from "@mui/material";
+import React, { FC } from "react";
+import { List, Skeleton, ListItem } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { ListItemButton } from "@/components/ListItemButton";
-const CharacterEpisodeDetail = () => {
+import Episode from "./Episode";
+interface Props {
+  episodes: string[];
+  isLoading: boolean;
+}
+const CharacterEpisodeDetail: FC<Props> = ({ isLoading, episodes }) => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -13,12 +17,15 @@ const CharacterEpisodeDetail = () => {
         marginTop: matchesMD ? "16px" : "36px",
       }}
     >
-      <ListItemButton title={"S01E02"} date={"December 9, 2013"}>
-        Lawnmower Dog
-      </ListItemButton>
-      <ListItemButton title={"S01E04"} date={"January 13, 2014"}>
-        M. Night Shaym-Aliens!
-      </ListItemButton>
+      {!isLoading &&
+        episodes.map((episode) => <Episode episode={episode} key={episode} />)}
+      {isLoading && (
+        <>
+          <Skeleton height={150} sx={{ width: "100%" }}></Skeleton>
+          <Skeleton height={150} sx={{ width: "100%" }}></Skeleton>
+          <Skeleton height={150} sx={{ width: "100%" }}></Skeleton>
+        </>
+      )}
     </List>
   );
 };

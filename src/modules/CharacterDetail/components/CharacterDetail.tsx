@@ -52,7 +52,10 @@ const CharacterDetail = () => {
           <Typography variant="h6" color="GrayText" component="div">
             Episodes
           </Typography>
-          <CharacterEpisodeDetail />
+          <CharacterEpisodeDetail
+            isLoading={isLoading}
+            episodes={character.episode}
+          />
         </Grid>
       </Grid>
     </>
