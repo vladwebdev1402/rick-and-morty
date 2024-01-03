@@ -1,11 +1,10 @@
 import React, { FC, useEffect } from "react";
 import st from "./CharacterList.module.scss";
 import { CharacterCard } from "@/components/CharacterCard";
-import { Button } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { fetchCharacters } from "../store/ActionCreator";
 import { ICharacterFilters } from "@/types/ICharacterFilters";
-import Skeletons from "./Skeletons";
+import CardsContainer from "@/components/UI/CardsContainer";
 
 interface Props {
   filters: ICharacterFilters;
@@ -24,46 +23,18 @@ const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
   }, [filters]);
 
   return (
-    <div className={`container ${st.cahracters}`}>
-      <div className={st.cahracters__body}>
-        {isLoading ? (
-          <Skeletons />
-        ) : (
-          characters.map((character) => (
-            <CharacterCard character={character} key={character.id} />
-          ))
-        )}
-      </div>
-
-      <div className={st.cahracters__footer}>
-        <Button
-          sx={{
-            padding: "10px 32px",
-          }}
-          variant="outlined"
-          onClick={() => {
-            window.scrollTo({ top: 100 });
-            nextPage();
-          }}
-        >
-          LOAD MORE
-        </Button>
-        {filters.page > 1 && (
-          <Button
-            sx={{
-              padding: "10px 32px",
-            }}
-            variant="text"
-            onClick={() => {
-              window.scrollTo({ top: 100 });
-              prevPage();
-            }}
-          >
-            BACK PAGE
-          </Button>
-        )}
-      </div>
-    </div>
+    <CardsContainer
+      className="container"
+      visibleNext
+      visiblePrev={filters.page > 1}
+      prevPage={prevPage}
+      nextPage={nextPage}
+      isLoading={isLoading}
+    >
+      {characters.map((character) => (
+        <CharacterCard character={character} key={character.id} />
+      ))}
+    </CardsContainer>
   );
 };
 
