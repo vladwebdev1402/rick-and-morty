@@ -37,7 +37,18 @@ const DropDown: FC<Props> = ({ label, items, visible, current, setFilter }) => {
     >
       <FormControl fullWidth>
         <InputLabel>{label}</InputLabel>
-        <Select label={label} value={current} onChange={handleChange}>
+        <Select
+          label={label}
+          value={current}
+          onChange={handleChange}
+          MenuProps={{
+            PaperProps: {
+              style: {
+                maxHeight: 300,
+              },
+            },
+          }}
+        >
           {items.map((item, idx) => (
             <MenuItem key={idx} value={item}>
               {item}

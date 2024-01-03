@@ -46,7 +46,7 @@ const LocationFilters = () => {
       select: {
         PaperProps: {
           style: {
-            maxHeight: 150,
+            maxHeight: 300,
           },
         },
       },
