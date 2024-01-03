@@ -1,11 +1,16 @@
 import React from "react";
 import { Grid } from "@mui/material";
+import CardsContainer from "@/components/UI/CardsContainer";
+import { locations } from "./data";
+import { LocationCard } from "@/components/LocationCard";
 
 const LocationList = () => {
   return (
-    <Grid container sx={{}}>
-      LocationList
-    </Grid>
+    <CardsContainer isLoading={false}>
+      {locations.map((l) => (
+        <LocationCard location={l} key={l.id} />
+      ))}
+    </CardsContainer>
   );
 };
 
