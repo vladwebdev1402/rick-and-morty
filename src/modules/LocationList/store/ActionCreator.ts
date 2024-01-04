@@ -12,8 +12,7 @@ export const fetchLocations = createAsyncThunk(
             return response.data.results
         }
         catch (e) {
-            if (e instanceof Error) return e.message
-            else if (typeof e === "string") return e
+            return thunkAPI.rejectWithValue("Ничего не найдено")
         }
         
     }

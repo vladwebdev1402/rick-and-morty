@@ -23,7 +23,7 @@ export const LocationListSlice = createSlice({
             state.isLoading = true;
         })
         builder.addCase(fetchLocations.rejected, (state, action: any) => {
-            state.isLoading = true;
+            state.isLoading = false;
             state.error = action.payload
         })
         builder.addCase(fetchLocations.fulfilled, (state, action: any) => {
