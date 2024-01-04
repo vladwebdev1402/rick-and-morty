@@ -20,12 +20,15 @@ export const LocationFiltersSlice = createSlice({
     reducers: {
         setName: (state, action: PayloadAction<string>) => {
             state.filters.name = action.payload
+            state.filters.page = 1
         },
         setDimension: (state, action: PayloadAction<string>) => {
             state.filters.dimension = action.payload
+            state.filters.page = 1
         },
         setType: (state, action: PayloadAction<string>) => {
             state.filters.type = action.payload
+            state.filters.page = 1
         },
         nextPage: (state) => {
             state.filters.page++
