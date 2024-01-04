@@ -1,12 +1,29 @@
-import React from "react";
-import { Grid } from "@mui/material";
+import React, { useEffect } from "react";
 import CardsContainer from "@/components/UI/CardsContainer";
-import { locations } from "./data";
+import { locations as locations2 } from "./data";
 import { LocationCard } from "@/components/LocationCard";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { fetchLocations } from "../store/ActionCreator";
 
 const LocationList = () => {
+  const dispatch = useAppDispatch();
+  const { locations, error, isLoading } = useAppSelector(
+    (state) => state.LocationListReducer
+  );
+
+  useEffect(() => {
+    dispatch(
+      fetchLocations({
+        dimension: "",
+        name: "",
+        page: 1,
+        type: "",
+      })
+    );
+  }, []);
+
   return (
-    <CardsContainer isLoading={false}>
+    <CardsContainer isLoading={isLoading}>
       {locations.map((l) => (
         <LocationCard location={l} key={l.id} />
       ))}
