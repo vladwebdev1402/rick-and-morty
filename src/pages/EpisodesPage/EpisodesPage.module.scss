@@ -1,0 +1,13 @@
+.image {
+    max-width: 270px;
+    margin: 0 auto;
+    img {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .image {
+        max-width: 170px;
+    }
+}
