@@ -13,12 +13,8 @@ interface Props {
 }
 
 const LocationList: FC<Props> = ({ filters, nextPage, prevPage }) => {
-  const { data, error, isLoading, refetch } =
+  const { data, error, isLoading } =
     LocationService.useGetAllLocationsQuery(filters);
-
-  useEffect(() => {
-    refetch();
-  }, [filters]);
 
   return (
     <CardsContainer
