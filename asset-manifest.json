@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rick-and-morty/static/css/main.92592c8d.css",
-    "main.js": "/rick-and-morty/static/js/main.f5558ba5.js",
+    "main.css": "/rick-and-morty/static/css/main.1e8cd948.css",
+    "main.js": "/rick-and-morty/static/js/main.0f5099f4.js",
     "static/media/logo.svg": "/rick-and-morty/static/media/logo.d10a8f93d9feefb6ad53f32bf94678ab.svg",
     "static/media/rick-and-morty-txt.svg": "/rick-and-morty/static/media/rick-and-morty-txt.cc4a7d1826c4c03d11cfbf42cc844bae.svg",
     "static/media/planets.png": "/rick-and-morty/static/media/planets.0d268500c9f2db541659.png",
@@ -10,11 +10,11 @@
     "static/media/Roboto-Bold.ttf": "/rick-and-morty/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
     "static/media/Karla-Bold.ttf": "/rick-and-morty/static/media/Karla-Bold.23ca816af95c228bcb4e.ttf",
     "index.html": "/rick-and-morty/index.html",
-    "main.92592c8d.css.map": "/rick-and-morty/static/css/main.92592c8d.css.map",
-    "main.f5558ba5.js.map": "/rick-and-morty/static/js/main.f5558ba5.js.map"
+    "main.1e8cd948.css.map": "/rick-and-morty/static/css/main.1e8cd948.css.map",
+    "main.0f5099f4.js.map": "/rick-and-morty/static/js/main.0f5099f4.js.map"
   },
   "entrypoints": [
-    "static/css/main.92592c8d.css",
-    "static/js/main.f5558ba5.js"
+    "static/css/main.1e8cd948.css",
+    "static/js/main.0f5099f4.js"
   ]
 }
