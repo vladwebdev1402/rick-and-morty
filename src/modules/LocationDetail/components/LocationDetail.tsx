@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { LocationDetailService } from "../service/service";
-import LocationAvatar from "./LocationAvatar";
-import LocationResidents from "./LocationResidents";
+import DetailTitlesContainer from "@/components/UI/DetailTitlesContainer/DetailTitlesContainer";
+import { ResidentsContainer } from "@/components/ResidentsContainer";
 
 const LocationDetail = () => {
   const params = useParams<{ id: string }>();
@@ -15,15 +15,22 @@ const LocationDetail = () => {
 
   return (
     <div>
-      <LocationAvatar
-        isLoading
-        name={(data && data.name) || ""}
-        dimension={(data && data.dimension) || ""}
-        type={(data && data.type) || ""}
-      />
-      <LocationResidents
-        residents={data ? data.residents : []}
+      <DetailTitlesContainer
         isLoading={isLoading}
+        name={(data && data.name) || ""}
+        first={{
+          title: "Type",
+          value: (data && data.type) || "",
+        }}
+        twenty={{
+          title: "dimension",
+          value: (data && data.dimension) || "",
+        }}
+      />
+      <ResidentsContainer
+        isLoading={isLoading}
+        residents={data ? data.residents : []}
+        title={"Residents"}
       />
     </div>
   );
