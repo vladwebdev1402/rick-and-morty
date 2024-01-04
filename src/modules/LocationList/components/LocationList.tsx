@@ -4,6 +4,7 @@ import { LocationCard } from "@/components/LocationCard";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { fetchLocations } from "../store/ActionCreator";
 import { ILocationFilters } from "@/types/ILocationFilters";
+import { LocationService } from "../service/service";
 
 interface Props {
   filters: ILocationFilters;
@@ -12,13 +13,11 @@ interface Props {
 }
 
 const LocationList: FC<Props> = ({ filters, nextPage, prevPage }) => {
-  const dispatch = useAppDispatch();
-  const { locations, error, isLoading } = useAppSelector(
-    (state) => state.LocationListReducer
-  );
+  const { data, error, isLoading, refetch } =
+    LocationService.useGetAllLocationsQuery(filters);
 
   useEffect(() => {
-    dispatch(fetchLocations(filters));
+    refetch();
   }, [filters]);
 
   return (
@@ -26,12 +25,11 @@ const LocationList: FC<Props> = ({ filters, nextPage, prevPage }) => {
       isLoading={isLoading}
       nextPage={nextPage}
       prevPage={prevPage}
-      visibleNext
+      visibleNext={data && !!data.info.next}
       visiblePrev={filters.page > 1}
     >
-      {locations.map((l) => (
-        <LocationCard location={l} key={l.id} />
-      ))}
+      {data &&
+        data.results.map((l) => <LocationCard location={l} key={l.id} />)}
     </CardsContainer>
   );
 };

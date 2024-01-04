@@ -2,7 +2,7 @@ import { CharacterListReducer } from "@/modules/CharacterList"
 import { CharacterFiltersReducer } from "@/modules/CharacterFilters"
 import { CharacterDetailReducer } from "@/modules/CharacterDetail"
 import { LocationFiltersReducer } from "@/modules/LocationsFilters"
-import { LocationListReducer } from "@/modules/LocationList"
+import { LocationListReducer, LocationService } from "@/modules/LocationList"
 import {combineReducers, configureStore} from "@reduxjs/toolkit"
 
 const rootReducer = combineReducers({
@@ -11,11 +11,14 @@ const rootReducer = combineReducers({
     CharacterDetailReducer,
     LocationFiltersReducer,
     LocationListReducer,
+    [LocationService.reducerPath]: LocationService.reducer,
+
 })
 
 export const setupStore = () => {
     return configureStore({
-        reducer: rootReducer
+        reducer: rootReducer,
+        middleware: (getDefaultMiddleware) =>  getDefaultMiddleware().concat(LocationService.middleware)
     })
 }
 
