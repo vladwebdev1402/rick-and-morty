@@ -3,7 +3,13 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px 20px;
-    margin-top: 60px;
+    margin-top: 24px;
+}
+
+.container__margin {
+    .container__body {
+        margin-top: 60px;
+    }
 }
 
 .container__footer {
@@ -12,6 +18,12 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
+}
+
+.container__body_notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 992px) {

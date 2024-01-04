@@ -18,3 +18,24 @@ export interface ICharacter {
     url: string;
     created: string;
 }
+
+export const characterInitValue: ICharacter  = {
+    "id": 1,
+    "name": "",
+    "status": "",
+    "species": "",
+    "type": "",
+    "gender": "",
+    "origin": {
+      "name": "",
+      "url": ""
+    },
+    "location": {
+      "name": "",
+      "url": ""
+    },
+    "image": "",
+    "episode": [],
+    "url": "",
+    "created": ""
+}

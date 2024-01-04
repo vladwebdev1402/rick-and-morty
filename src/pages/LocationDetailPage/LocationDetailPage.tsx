@@ -1,7 +1,13 @@
+import { DetailContainer } from "@/components/UI/DetailContainer";
+import { LocationDetail } from "@/modules/LocationDetail";
 import React from "react";
 
 const LocationDetailPage = () => {
-  return <div>LocationDetailPage</div>;
+  return (
+    <DetailContainer>
+      <LocationDetail />
+    </DetailContainer>
+  );
 };
 
 export default LocationDetailPage;

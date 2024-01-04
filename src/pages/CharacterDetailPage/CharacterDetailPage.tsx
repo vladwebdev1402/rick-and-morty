@@ -1,6 +1,6 @@
 import React from "react";
 import { CharacterDetail } from "@/modules/CharacterDetail";
-import DetailContainer from "@/components/UI/DetailContainer/DetailContainer";
+import { DetailContainer } from "@/components/UI/DetailContainer";
 
 const CharacterDetailPage = () => {
   return (

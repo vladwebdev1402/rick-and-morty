@@ -10,6 +10,9 @@ interface Props {
   visiblePrev?: boolean;
   visibleNext?: boolean;
   className?: string;
+  margin?: boolean;
+  notFound?: boolean;
+  notFoundMessage?: string;
 }
 
 const CardsContainer: FC<Props> = ({
@@ -20,11 +23,19 @@ const CardsContainer: FC<Props> = ({
   visiblePrev = false,
   visibleNext = false,
   className = "",
+  margin = true,
+  notFound = false,
+  notFoundMessage = "Data not found",
 }) => {
   return (
-    <div className={`${className}`}>
-      <div className={st.container__body}>
+    <div className={`${className} ${margin ? st.container__margin : ""}`}>
+      <div
+        className={`${notFound ? st.container__body_notFound : ""} ${
+          st.container__body
+        }`}
+      >
         {isLoading ? <Skeletons /> : children}
+        {!isLoading && notFound ? <div>{notFoundMessage}</div> : ""}
       </div>
 
       <div className={st.container__footer}>
