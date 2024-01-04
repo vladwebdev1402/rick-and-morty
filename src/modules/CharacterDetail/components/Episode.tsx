@@ -2,8 +2,8 @@ import { IEpisode, episodeInitValue } from "@/components/EpisodeCard";
 import { useFetch } from "@/hooks/useFetch";
 import axios from "axios";
 import React, { FC, useEffect } from "react";
-import ListItemButton from "./ListItemButton/ListItemButton";
 import ListEpisodeButton from "./ListEpisodeButton/ListEpisodeButton";
+import { paths } from "@/routePaths/paths";
 
 interface Props {
   episode: string;
@@ -27,6 +27,7 @@ const Episode: FC<Props> = ({ episode }) => {
       title={data.episode}
       date={data.air_date}
       isLoading={isLoading}
+      onClick={() => {}}
     >
       {data.name}
     </ListEpisodeButton>

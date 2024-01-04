@@ -5,6 +5,8 @@ import { useTheme } from "@mui/material/styles";
 import { ICharacter } from "@/components/CharacterCard";
 import ListItemButton from "./ListItemButton/ListItemButton";
 import ListItemInfo from "./ListItemInfo/ListItemInfo";
+import { paths } from "@/routePaths/paths";
+import { useNavigate } from "react-router-dom";
 interface Props {
   isLoading: boolean;
   character: ICharacter;
@@ -12,7 +14,7 @@ interface Props {
 const CharacterInformationDeatil: FC<Props> = ({ isLoading, character }) => {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-
+  const navigate = useNavigate();
   return (
     <List
       sx={{
@@ -34,7 +36,16 @@ const CharacterInformationDeatil: FC<Props> = ({ isLoading, character }) => {
       <ListItemInfo title={"Type"} isLoading={isLoading}>
         {character.type ? character.type : "unknown"}
       </ListItemInfo>
-      <ListItemButton title={"Location"}>
+      <ListItemButton
+        title={"Location"}
+        onClick={() => {
+          navigate(
+            paths.locationDetailNavigate(
+              Number(character.location.url.split("/").at(-1)) ?? 0
+            )
+          );
+        }}
+      >
         {character.location.name}
       </ListItemButton>
     </List>

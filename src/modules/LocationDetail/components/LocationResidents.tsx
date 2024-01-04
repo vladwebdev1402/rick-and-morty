@@ -7,10 +7,10 @@ interface Props {
   isLoading: boolean;
 }
 const LocationResidents: FC<Props> = ({ residents, isLoading }) => {
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(15);
 
   const nextLimit = () => {
-    setLimit(limit + 10);
+    setLimit(limit + 15);
   };
 
   return (

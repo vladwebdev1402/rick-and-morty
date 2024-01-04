@@ -11,9 +11,15 @@ interface Props {
   title: string;
   children: React.ReactNode;
   isLoading?: boolean;
+  onClick: () => void;
 }
 
-const ListItemButton: FC<Props> = ({ title, children, isLoading = false }) => {
+const ListItemButton: FC<Props> = ({
+  title,
+  children,
+  isLoading = false,
+  onClick,
+}) => {
   return (
     <ListItem
       disablePadding
@@ -22,7 +28,7 @@ const ListItemButton: FC<Props> = ({ title, children, isLoading = false }) => {
       }
       divider
     >
-      <ListItemBtn>
+      <ListItemBtn onClick={onClick}>
         <Box>
           <Typography
             variant="h6"

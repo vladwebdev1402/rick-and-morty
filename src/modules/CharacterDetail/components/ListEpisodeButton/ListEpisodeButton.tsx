@@ -12,8 +12,15 @@ interface Props {
   children: React.ReactNode;
   date: string;
   isLoading?: boolean;
+  onClick: () => void;
 }
-const ListEpisodeButton: FC<Props> = ({ title, children, date, isLoading }) => {
+const ListEpisodeButton: FC<Props> = ({
+  title,
+  children,
+  date,
+  isLoading,
+  onClick,
+}) => {
   return (
     <ListItem
       disablePadding
@@ -22,7 +29,7 @@ const ListEpisodeButton: FC<Props> = ({ title, children, date, isLoading }) => {
       }
       divider
     >
-      <ListItemBtn>
+      <ListItemBtn onClick={onClick}>
         <Box>
           {!isLoading ? (
             <Typography

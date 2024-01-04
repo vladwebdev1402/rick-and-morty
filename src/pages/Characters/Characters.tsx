@@ -13,8 +13,14 @@ const Characters = () => {
   );
   const dispatch = useAppDispatch();
   const { nextPage, prevPage } = CharacterFiltersSlice.actions;
-  const dispatchNext = () => dispatch(nextPage());
-  const dispatchPrev = () => dispatch(prevPage());
+  const dispatchNext = () => {
+    window.scrollTo({ top: 100 });
+    dispatch(nextPage());
+  };
+  const dispatchPrev = () => {
+    window.scrollTo({ top: 100 });
+    dispatch(prevPage());
+  };
   return (
     <>
       <div className={st.logo}>
