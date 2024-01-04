@@ -15,13 +15,21 @@ const CharacterFilters = () => {
   const filters = useAppSelector(
     (state) => state.CharacterFiltersReducer.filters
   );
+  let timer: any;
+  const [name, setName] = useState(filters.name);
   const actions = CharacterFiltersSlice.actions;
   const dispatch = useAppDispatch();
-
   const setSpecies = (payload: string) => dispatch(actions.setSpecies(payload));
   const setGender = (payload: string) => dispatch(actions.setGender(payload));
   const setStatus = (payload: string) => dispatch(actions.setStatus(payload));
 
+  const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    clearTimeout(timer);
+    setName(e.target.value);
+    timer = setTimeout(() => {
+      dispatch(actions.setName(e.target.value));
+    }, 1000);
+  };
   return (
     <div className={`container ${st.filters}`}>
       <Grid container spacing={2}>
@@ -29,10 +37,8 @@ const CharacterFilters = () => {
           <SearchField
             fullWidth
             placeholder="Filter by name..."
-            value={filters.name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              dispatch(actions.setName(e.target.value))
-            }
+            value={name}
+            onChange={changeName}
           />
         </Grid>
         <DropDown

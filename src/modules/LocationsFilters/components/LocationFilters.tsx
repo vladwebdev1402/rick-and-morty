@@ -23,6 +23,8 @@ const LocationFilters = () => {
 
   const { setName, setType, setDimension } = LocationFiltersSlice.actions;
 
+  const [localName, setLocalName] = useState(filters.name);
+
   const [showAll, setShowAll] = useState(false);
   const theme = useTheme();
   const downMd = useMediaQuery(theme.breakpoints.down("md"));
@@ -61,8 +63,14 @@ const LocationFilters = () => {
     if (e.target.value == "Clear") dispatch(setDimension(""));
     else dispatch(setDimension(e.target.value));
   };
+
+  let timer: any;
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setName(e.target.value));
+    clearTimeout(timer);
+    setLocalName(e.target.value);
+    timer = setTimeout(() => {
+      dispatch(setName(e.target.value));
+    }, 1000);
   };
 
   return (
@@ -70,7 +78,7 @@ const LocationFilters = () => {
       <SearchField
         sx={st.search}
         placeholder="Filter by name..."
-        value={filters.name}
+        value={localName}
         onChange={changeName}
       />
       <FormControl sx={st.formControl}>
