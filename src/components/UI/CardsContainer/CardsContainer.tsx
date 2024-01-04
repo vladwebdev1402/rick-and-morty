@@ -22,8 +22,10 @@ const CardsContainer: FC<Props> = ({
   className = "",
 }) => {
   return (
-    <div className={`${className} ${st.container}`}>
-      {isLoading ? <Skeletons /> : children}
+    <div className={`${className}`}>
+      <div className={st.container__body}>
+        {isLoading ? <Skeletons /> : children}
+      </div>
 
       <div className={st.container__footer}>
         {visibleNext && (
