@@ -46,7 +46,6 @@ const CardsContainer: FC<Props> = ({
             }}
             variant="outlined"
             onClick={() => {
-              window.scrollTo({ top: 100 });
               nextPage();
             }}
           >
@@ -60,7 +59,6 @@ const CardsContainer: FC<Props> = ({
             }}
             variant="text"
             onClick={() => {
-              window.scrollTo({ top: 100 });
               prevPage();
             }}
           >

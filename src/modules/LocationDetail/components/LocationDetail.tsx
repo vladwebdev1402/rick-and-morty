@@ -11,7 +11,7 @@ const LocationDetail = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-  }, []);
+  }, [params]);
 
   return (
     <div>

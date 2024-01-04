@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -17,15 +17,18 @@ interface Props {
 const LocationAvatar: FC<Props> = ({ name, type, dimension, isLoading }) => {
   const theme = useTheme();
   const mediaMD = useMediaQuery(theme.breakpoints.down("md"));
-  const st = {
-    avatar: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    avatar__title: { margin: mediaMD ? "0 20px" : "0 150px" },
-    avatar__body: { marginTop: "20px" },
-  };
+  const st = useMemo(
+    () => ({
+      avatar: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      },
+      avatar__title: { margin: mediaMD ? "0 20px" : "0 150px" },
+      avatar__body: { marginTop: "20px" },
+    }),
+    [mediaMD]
+  );
   return (
     <Box sx={st.avatar}>
       <Typography
