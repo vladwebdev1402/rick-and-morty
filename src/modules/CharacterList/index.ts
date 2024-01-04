@@ -1,8 +1,6 @@
 import CharacterList from "./components/CharacterList";
-import { CharacterListSlice } from "./store/reducer";
-import CharacterListReducer from "./store/reducer";
+import { CharacterListService } from "./service/service";
 export {
     CharacterList,
-    CharacterListSlice,
-    CharacterListReducer
+    CharacterListService
 };

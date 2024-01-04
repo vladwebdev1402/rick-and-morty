@@ -1,8 +1,6 @@
 import React, { useEffect, FC } from "react";
 import CardsContainer from "@/components/UI/CardsContainer";
 import { LocationCard } from "@/components/LocationCard";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { fetchLocations } from "../store/ActionCreator";
 import { ILocationFilters } from "@/types/ILocationFilters";
 import { LocationService } from "../service/service";
 

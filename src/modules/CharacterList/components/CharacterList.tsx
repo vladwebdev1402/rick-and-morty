@@ -1,10 +1,9 @@
 import React, { FC, useEffect } from "react";
 import st from "./CharacterList.module.scss";
 import { CharacterCard } from "@/components/CharacterCard";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { fetchCharacters } from "../store/ActionCreator";
 import { ICharacterFilters } from "@/types/ICharacterFilters";
 import CardsContainer from "@/components/UI/CardsContainer";
+import { CharacterListService } from "../service/service";
 
 interface Props {
   filters: ICharacterFilters;
@@ -13,27 +12,22 @@ interface Props {
 }
 
 const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
-  const dispatch = useAppDispatch();
-  const { characters, error, isLoading } = useAppSelector(
-    (state) => state.CharacterListReducer
-  );
-
-  useEffect(() => {
-    dispatch(fetchCharacters(filters));
-  }, [filters]);
+  const { data, error, isLoading } =
+    CharacterListService.useGetAllCharactersQuery(filters);
 
   return (
     <CardsContainer
       className="container"
-      visibleNext
+      visibleNext={data && !!data.info.next}
       visiblePrev={filters.page > 1}
       prevPage={prevPage}
       nextPage={nextPage}
       isLoading={isLoading}
     >
-      {characters.map((character) => (
-        <CharacterCard character={character} key={character.id} />
-      ))}
+      {data &&
+        data.results.map((character) => (
+          <CharacterCard character={character} key={character.id} />
+        ))}
     </CardsContainer>
   );
 };
