@@ -10,7 +10,6 @@ import { fetchCharacterDetail } from "../store/ActionCreator";
 
 const CharacterDetail = () => {
   const params = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const { character, error, isLoading } = useAppSelector(
     (state) => state.CharacterDetailReducer
   );
@@ -24,14 +23,6 @@ const CharacterDetail = () => {
   return (
     <>
       <Box>
-        <Button
-          variant="text"
-          color="inherit"
-          startIcon={<ArrowBackIcon />}
-          onClick={() => navigate(-1)}
-        >
-          go back
-        </Button>
         <CharacterAvatarDetail
           name={character.name}
           image={character.image}

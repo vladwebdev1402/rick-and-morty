@@ -11,7 +11,7 @@ interface Props {
 
 const CharacterAvatarDetail: FC<Props> = ({ name, image, isLoading }) => {
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Box

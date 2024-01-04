@@ -10,6 +10,7 @@ import {
 import { paths } from "../../routePaths/paths";
 import CharacterDetailPage from "@/pages/CharacterDetailPage/CharacterDetailPage";
 import LocationsPage from "@/pages/LocationsPage/LocationsPage";
+import LocationDetailPage from "@/pages/LocationDetailPage/LocationDetailPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route index element={<Characters />} />
       <Route path={paths.characterDetail} element={<CharacterDetailPage />} />
       <Route path={paths.locations} element={<LocationsPage />} />
+      <Route path={paths.locationDetail} element={<LocationDetailPage />} />
     </Route>
   )
 );

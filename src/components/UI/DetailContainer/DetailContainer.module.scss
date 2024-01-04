@@ -1,0 +1,9 @@
+.details {
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .details {
+        padding-top: 40px;
+    }
+}
