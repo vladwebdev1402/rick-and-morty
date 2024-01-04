@@ -6,6 +6,7 @@ import { EpisodeFiltersReducer } from "@/modules/EpisodeFilters";
 import { LocationListReducer, LocationService } from "@/modules/LocationList";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { LocationDetailService } from "@/modules/LocationDetail";
+import { EpisodeListService } from "@/modules/EpisodeList";
 const rootReducer = combineReducers({
   CharacterFiltersReducer,
   CharacterDetailReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   [LocationService.reducerPath]: LocationService.reducer,
   [CharacterListService.reducerPath]: CharacterListService.reducer,
   [LocationDetailService.reducerPath]: LocationDetailService.reducer,
+  [EpisodeListService.reducerPath]: EpisodeListService.reducer,
 });
 
 export const setupStore = () => {
@@ -24,7 +26,8 @@ export const setupStore = () => {
       getDefaultMiddleware().concat(
         CharacterListService.middleware,
         LocationService.middleware,
-        LocationDetailService.middleware
+        LocationDetailService.middleware,
+        EpisodeListService.middleware
       ),
   });
 };

@@ -11,6 +11,7 @@ const EpisodeFilters = () => {
   const { setName } = EpisodeFiltersSlice.actions;
   const [localName, setLocalName] = useState(name);
 
+
   let timer: any;
   const changeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(timer);
