@@ -7,5 +7,7 @@ export const paths = {
     locations: root + "location",
     locationDetail: root + "location/:id",
     locationDetailNavigate: (id: number) => root + "location/" + id,
-    episodes: root + "episode"
+    episodes: root + "episode",
+    episodeDetail: root + "episode/:id",
+    episodeDetailNavigate: (id: number) => root + "episode/" + id,
 }

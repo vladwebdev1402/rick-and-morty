@@ -1,13 +1,17 @@
 import React, { FC } from "react";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import { IEpisode } from "./type";
+import { useNavigate } from "react-router-dom";
+import { paths } from "@/routePaths/paths";
 interface Props {
   episode: IEpisode;
 }
 const EpisodeCard: FC<Props> = ({ episode }) => {
+  const navigate = useNavigate();
   return (
     <Card>
       <CardActionArea
+        onClick={() => navigate(paths.episodeDetailNavigate(episode.id))}
         sx={{
           height: "100%",
         }}

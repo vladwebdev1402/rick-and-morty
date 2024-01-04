@@ -16,7 +16,8 @@ export const EpisodeListService = createApi({
                 url: "/episode",
                 params: {
                     episode: regEpisode1.test(filters.name) || regEpisode2.test(filters.name) ? filters.name : "",
-                    name: regEpisode1.test(filters.name) || regEpisode2.test(filters.name) ? "" : filters.name
+                    name: regEpisode1.test(filters.name) || regEpisode2.test(filters.name) ? "" : filters.name,
+                    page: filters.page
                 },
             })
         })
