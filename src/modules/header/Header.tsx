@@ -22,7 +22,7 @@ const Header = () => {
             <Link to={paths.locations}>Locations</Link>
           </li>
           <li className={st.header__linkitem}>
-            <Link to={"#"}>Episodes</Link>
+            <Link to={paths.episodes}>Episodes</Link>
           </li>
         </ul>
         <BurgerButton

@@ -28,7 +28,7 @@ const BurgerBody: FC<Props> = ({ active, close }) => {
           </Link>
         </li>
         <li className={st.header__linkitem}>
-          <Link to={"#"} onClick={close}>
+          <Link to={paths.episodes} onClick={close}>
             Episodes
           </Link>
         </li>
