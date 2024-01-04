@@ -36,7 +36,12 @@ const DetailTitlesContainer: FC<Props> = ({
         alignItems: "center",
       },
       avatar__title: { margin: mediaMD ? "0 20px" : "0 150px" },
-      avatar__body: { marginTop: "20px" },
+      avatar__body: {
+        marginTop: "20px",
+        maxWidth: "550px",
+        marginLeft: "auto",
+        marginRight: "auto",
+      },
     }),
     [mediaMD]
   );
