@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { EpisodeDetailService } from "../service/service";
-import EpisodeAvatar from "./EpisodeAvatar";
 import DetailTitlesContainer from "@/components/UI/DetailTitlesContainer/DetailTitlesContainer";
 import { ResidentsContainer } from "@/components/ResidentsContainer";
 
