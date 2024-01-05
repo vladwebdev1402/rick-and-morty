@@ -10,8 +10,8 @@ export const fetchCharacterDetail = createAsyncThunk(
             return response.data
         }
         catch (e) {
-            if (e instanceof Error) return e.message
-            else if (typeof e === "string") return e
+            if (e instanceof Error) return thunkAPI.rejectWithValue(e.message) 
+            else if (typeof e === "string") return thunkAPI.rejectWithValue(e) 
         }   
     }
 )

@@ -26,7 +26,7 @@ const Resident: FC<Props> = ({ resident }) => {
   }, [resident]);
 
   return isLoading ? (
-    <Skeleton height={300} />
+    <Skeleton height={200} variant="rectangular" />
   ) : (
     <CharacterCard character={data} />
   );

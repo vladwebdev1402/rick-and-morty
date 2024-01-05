@@ -43,6 +43,7 @@ export const CharacterDetailSlice = createSlice(
        extraReducers: (builder) => {
         builder.addCase(fetchCharacterDetail.pending, (state) => {
             state.isLoading = true
+            state.error = ""
           })
         builder.addCase(fetchCharacterDetail.rejected, (state, action: any) => {
             state.isLoading = false

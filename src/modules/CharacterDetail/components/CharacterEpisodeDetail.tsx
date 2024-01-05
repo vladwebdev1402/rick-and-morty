@@ -21,9 +21,31 @@ const CharacterEpisodeDetail: FC<Props> = ({ isLoading, episodes }) => {
         episodes.map((episode) => <Episode episode={episode} key={episode} />)}
       {isLoading && (
         <>
-          <Skeleton height={150} sx={{ width: "100%" }}></Skeleton>
-          <Skeleton height={150} sx={{ width: "100%" }}></Skeleton>
-          <Skeleton height={150} sx={{ width: "100%" }}></Skeleton>
+          <Skeleton
+            height={78}
+            sx={{ marginBottom: "5px" }}
+            variant="rounded"
+          ></Skeleton>
+          <Skeleton
+            height={78}
+            sx={{ marginBottom: "5px" }}
+            variant="rounded"
+          ></Skeleton>
+          <Skeleton
+            height={78}
+            sx={{ marginBottom: "5px" }}
+            variant="rounded"
+          ></Skeleton>
+          <Skeleton
+            height={78}
+            sx={{ marginBottom: "5px" }}
+            variant="rounded"
+          ></Skeleton>
+          <Skeleton
+            height={78}
+            sx={{ marginBottom: "5px" }}
+            variant="rounded"
+          ></Skeleton>
         </>
       )}
     </List>

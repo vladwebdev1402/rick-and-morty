@@ -1,11 +1,10 @@
 import { Box, Button, Typography, Grid } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import React, { useEffect } from "react";
 import CharacterAvatarDetail from "./CharacterAvatarDetail";
 import CharacterInformationDeatil from "./CharacterInformationDeatil";
 import CharacterEpisodeDetail from "./CharacterEpisodeDetail";
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchCharacterDetail } from "../store/ActionCreator";
 
 const CharacterDetail = () => {
@@ -27,34 +26,37 @@ const CharacterDetail = () => {
           name={character.name}
           image={character.image}
           isLoading={isLoading}
+          error={error}
         />
       </Box>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          marginTop: `32px`,
-        }}
-      >
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" color="GrayText" component="div">
-            Informations
-          </Typography>
-          <CharacterInformationDeatil
-            isLoading={isLoading}
-            character={character}
-          />
+      {!error && (
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            marginTop: `32px`,
+          }}
+        >
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" color="GrayText" component="div">
+              Informations
+            </Typography>
+            <CharacterInformationDeatil
+              isLoading={isLoading}
+              character={character}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h6" color="GrayText" component="div">
+              Episodes
+            </Typography>
+            <CharacterEpisodeDetail
+              isLoading={isLoading}
+              episodes={character.episode}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" color="GrayText" component="div">
-            Episodes
-          </Typography>
-          <CharacterEpisodeDetail
-            isLoading={isLoading}
-            episodes={character.episode}
-          />
-        </Grid>
-      </Grid>
+      )}
     </>
   );
 };
