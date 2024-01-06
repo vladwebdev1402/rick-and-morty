@@ -1,6 +1,6 @@
 import { baseUrl } from "@/api/apiPaths";
+import { baseErrorResponse } from "@/api/baseErrorResponse";
 import { ILocation } from "@/components/LocationCard";
-import { IError } from "@/types/IError";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const LocationDetailService = createApi({
@@ -11,8 +11,7 @@ export const LocationDetailService = createApi({
       query: (id: number) => ({
         url: "/location/" + id,
       }),
-      transformErrorResponse: (error: IError) =>
-        error.data ? error.data.error : "There is no internet connection",
+      transformErrorResponse: baseErrorResponse,
     }),
   }),
 });

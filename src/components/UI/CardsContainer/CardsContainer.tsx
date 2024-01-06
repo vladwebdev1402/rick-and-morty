@@ -34,7 +34,8 @@ const CardsContainer: FC<Props> = ({
           st.container__body
         }`}
       >
-        {isLoading ? <Skeletons /> : children}
+        {isLoading ? <Skeletons /> : <></>}
+        {!isLoading && !notFound ? children : <></>}
         {!isLoading && notFound ? <div>{notFoundMessage}</div> : ""}
       </div>
 

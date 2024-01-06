@@ -1,5 +1,4 @@
-import React, { FC, useEffect } from "react";
-import st from "./CharacterList.module.scss";
+import React, { FC } from "react";
 import { CharacterCard } from "@/components/CharacterCard";
 import { ICharacterFilters } from "@/types/ICharacterFilters";
 import CardsContainer from "@/components/UI/CardsContainer";
@@ -12,7 +11,7 @@ interface Props {
 }
 
 const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
-  const { data, error, isLoading } =
+  const { data, error, isError, isFetching } =
     CharacterListService.useGetAllCharactersQuery(filters);
 
   return (
@@ -22,7 +21,9 @@ const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
       visiblePrev={filters.page > 1}
       prevPage={prevPage}
       nextPage={nextPage}
-      isLoading={isLoading}
+      isLoading={isFetching}
+      notFound={isError}
+      notFoundMessage={typeof error === "string" ? error : ""}
     >
       {data &&
         data.results.map((character) => (
