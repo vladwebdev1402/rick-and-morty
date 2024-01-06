@@ -6,28 +6,31 @@ import { ResidentsContainer } from "@/components/ResidentsContainer";
 
 const EpisodeDetail = () => {
   const params = useParams<{ id: string }>();
-  const { data, error, isLoading } =
+  const { data, error, isError, isFetching } =
     EpisodeDetailService.useFetchEpisodeByIdQuery(Number(params.id) ?? -1);
 
   return (
     <div>
       <DetailTitlesContainer
-        isLoading={isLoading}
+        isLoading={isFetching}
+        error={typeof error === "string" ? error : ""}
         name={(data && data.name) || ""}
         first={{
           title: "Episode",
-          value: (data && data.episode) || "",
+          value: (data && data.episode) || "unknonw",
         }}
         twenty={{
           title: "Date",
-          value: (data && data.air_date) || "",
+          value: (data && data.air_date) || "unknonw",
         }}
       />
-      <ResidentsContainer
-        isLoading={isLoading}
-        title="Cast"
-        residents={(data && data.characters) || []}
-      />
+      {!isError && (
+        <ResidentsContainer
+          isLoading={isFetching}
+          title="Cast"
+          residents={(data && data.characters) || []}
+        />
+      )}
     </div>
   );
 };

@@ -11,16 +11,18 @@ interface Props {
 }
 
 const EpisodeList: FC<Props> = ({ nextPage, prevPage, filters }) => {
-  const { data, error, isLoading } =
+  const { data, error, isFetching, isError } =
     EpisodeListService.useFetchAllEpisodesQuery(filters);
 
   return (
     <CardsContainer
-      visibleNext={data && !!data.info.next}
+      visibleNext={!isError && data && !!data.info.next}
       visiblePrev={filters.page > 1}
+      notFound={isError}
+      notFoundMessage={typeof error === "string" ? error : ""}
       prevPage={prevPage}
       nextPage={nextPage}
-      isLoading={isLoading}
+      isLoading={isFetching}
     >
       {data &&
         data.results.map((episode) => (
