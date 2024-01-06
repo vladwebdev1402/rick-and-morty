@@ -11,15 +11,17 @@ interface Props {
 }
 
 const LocationList: FC<Props> = ({ filters, nextPage, prevPage }) => {
-  const { data, error, isLoading } =
+  const { data, error, isError, isFetching } =
     LocationService.useGetAllLocationsQuery(filters);
 
   return (
     <CardsContainer
-      isLoading={isLoading}
+      isLoading={isFetching}
+      notFound={isError}
+      notFoundMessage={typeof error === "string" ? error : ""}
       nextPage={nextPage}
       prevPage={prevPage}
-      visibleNext={data && !!data.info.next}
+      visibleNext={!isError && data && !!data.info.next}
       visiblePrev={filters.page > 1}
     >
       {data &&

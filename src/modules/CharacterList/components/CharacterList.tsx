@@ -17,7 +17,7 @@ const CharacterList: FC<Props> = ({ filters, nextPage, prevPage }) => {
   return (
     <CardsContainer
       className="container"
-      visibleNext={data && !!data.info.next}
+      visibleNext={!isError && data && !!data.info.next}
       visiblePrev={filters.page > 1}
       prevPage={prevPage}
       nextPage={nextPage}

@@ -2,6 +2,7 @@ import { baseUrl } from "@/api/apiPaths";
 import { ILocationFilters } from "@/types/ILocationFilters";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IResponse } from "../store/types";
+import { baseErrorResponse } from "@/api/baseErrorResponse";
 
 export const LocationService = createApi({
   reducerPath: "locationApi",
@@ -12,6 +13,7 @@ export const LocationService = createApi({
         url: "/location",
         params: filters,
       }),
+      transformErrorResponse: baseErrorResponse
     }),
   }),
 });
