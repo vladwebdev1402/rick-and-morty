@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import { LocationDetailService } from "../service/service";
 import DetailTitlesContainer from "@/components/UI/DetailTitlesContainer/DetailTitlesContainer";
 import { ResidentsContainer } from "@/components/ResidentsContainer";
-
 const LocationDetail = () => {
   const params = useParams<{ id: string }>();
-  const { data, error, isLoading } =
+  const { data, error, isError, isLoading } =
     LocationDetailService.useGetDetailByIdQuery(Number(params?.id) ?? 0);
 
   useEffect(() => {
@@ -16,22 +15,25 @@ const LocationDetail = () => {
   return (
     <div>
       <DetailTitlesContainer
+        error={typeof error === "string" ? error : undefined}
         isLoading={isLoading}
         name={(data && data.name) || ""}
         first={{
           title: "Type",
-          value: (data && data.type) || "",
+          value: (data && data.type) || "unknown",
         }}
         twenty={{
-          title: "dimension",
-          value: (data && data.dimension) || "",
+          title: "Dimension",
+          value: (data && data.dimension) || "unknown",
         }}
       />
-      <ResidentsContainer
-        isLoading={isLoading}
-        residents={data ? data.residents : []}
-        title={"Residents"}
-      />
+      {!isError && (
+        <ResidentsContainer
+          isLoading={isLoading}
+          residents={data ? data.residents : []}
+          title={"Residents"}
+        />
+      )}
     </div>
   );
 };

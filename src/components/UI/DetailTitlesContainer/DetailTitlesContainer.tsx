@@ -18,6 +18,7 @@ interface Props {
     value: string;
   };
   isLoading: boolean;
+  error?: string;
 }
 
 const DetailTitlesContainer: FC<Props> = ({
@@ -25,6 +26,7 @@ const DetailTitlesContainer: FC<Props> = ({
   first,
   twenty,
   isLoading,
+  error,
 }) => {
   const theme = useTheme();
   const mediaMD = useMediaQuery(theme.breakpoints.down("md"));
@@ -53,11 +55,9 @@ const DetailTitlesContainer: FC<Props> = ({
         component="div"
         sx={st.avatar__title}
       >
-        {!isLoading && name ? (
-          name
-        ) : (
-          <Skeleton height={60} width={300}></Skeleton>
-        )}
+        {isLoading && <Skeleton height={60} width={300}></Skeleton>}
+        {!isLoading && name && !error ? name : <></>}
+        {!isLoading && error ? error : <></>}
       </Typography>
       <Grid sx={st.avatar__body} container spacing={2}>
         <Grid item xs={12} sm={6}>
