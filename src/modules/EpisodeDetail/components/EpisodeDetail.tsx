@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { EpisodeDetailService } from "../service/service";
 import DetailTitlesContainer from "@/components/UI/DetailTitlesContainer/DetailTitlesContainer";
@@ -8,6 +8,10 @@ const EpisodeDetail = () => {
   const params = useParams<{ id: string }>();
   const { data, error, isError, isFetching } =
     EpisodeDetailService.useFetchEpisodeByIdQuery(Number(params.id) ?? -1);
+
+  useEffect(() => {
+    window.scrollTo({ top: 20 });
+  }, []);
 
   return (
     <div>

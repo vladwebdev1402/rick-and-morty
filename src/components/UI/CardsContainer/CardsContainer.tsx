@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import st from "./CardsContainer.module.scss";
 import Skeletons from "./Skeletons";
 interface Props {
@@ -36,7 +36,13 @@ const CardsContainer: FC<Props> = ({
       >
         {isLoading ? <Skeletons /> : <></>}
         {!isLoading && !notFound ? children : <></>}
-        {!isLoading && notFound ? <div>{notFoundMessage}</div> : ""}
+        {!isLoading && notFound ? (
+          <Typography variant="h5" component="div">
+            {notFoundMessage}
+          </Typography>
+        ) : (
+          ""
+        )}
       </div>
 
       <div className={st.container__footer}>
